@@ -20,7 +20,9 @@ $SelectFonction = $Fonction->getAllFonction();
 
 // ajouter une personne
 if(empty($_POST['per_nom']) && empty($_POST['per_prenom'] )&& empty($_POST['per_tel'])
-   &&empty($_POST['per_mail']) && empty($_POST['per_login'] )&& empty($_POST['per_pwd']) && empty($_POST['categorie'])){
+   &&empty($_POST['per_mail']) && empty($_POST['per_login'] )&& empty($_POST['per_pwd']) && empty($_POST['categorie'])
+    && empty($_POST['dep_num']) && empty($_POST['div_num'])
+){
 
 
 	echo "<h1>Ajouter une personne</h1>";
@@ -134,8 +136,17 @@ if(empty($_POST['per_nom']) && empty($_POST['per_prenom'] )&& empty($_POST['per_
 }
 
 
-if(!empty($_POST['dep_num']) && !empty($_POST['div_num'])){
+if(empty($_POST['per_nom']) && empty($_POST['per_prenom'])
+    && empty($_POST['per_tel']) && empty($_POST['per_mail'])
+    && empty($_POST['per_login'])&& empty($_POST['per_pwd'])
+    && !empty($_POST['dep_num']) && !empty($_POST['div_num'])){
 
+    ?>
+
+    <p> la personne est ajoutée ! </p>
+    <input type="submit" value="Valider" />
+
+<?php
       $Personne = new Personne(
          array('per_nom'=>$_SESSION['per_nom'], 'per_prenom'=>$_SESSION['per_prenom'],
               'per_tel'=>$_SESSION['per_tel'], 'per_mail'=>$_SESSION['per_mail'],
