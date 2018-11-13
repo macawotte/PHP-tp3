@@ -39,6 +39,19 @@ class VilleManager{
 
 					}
 
+        public function getlaVilleById($id){
+
+
+            $sql = 'SELECT vil_nom FROM ville WHERE vil_num ='.$id;
+
+            $requete = $this->db->query($sql);
+            $ville = $requete->fetch(PDO::FETCH_ASSOC);
+            $laville = new Ville($ville);
+
+            return $laville;
+
+        }
+
 
 
 

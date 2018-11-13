@@ -15,7 +15,7 @@ class Etudiant{
 			 foreach ($donnees as $attribut => $valeur){
 					 switch ($attribut){
 
-						 case 'per_num': $this->getPer_num($valeur); break;
+						 case 'per_num': $this->setPer_num($valeur); break;
 						 case 'dep_num': $this->setDep_num($valeur); break;
 						 case 'div_num': $this->setDiv_num($valeur); break;
 
